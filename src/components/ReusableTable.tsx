@@ -74,6 +74,11 @@ function ReusableTable<T>({
   // Generate the page numbers.
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
+  // Capitalize the title columns.
+  const capitalize = (word: string) => {
+    return word[0].toUpperCase() + word.slice(1);
+  }
+
   // Render the component.
   return (
     <>
@@ -84,7 +89,7 @@ function ReusableTable<T>({
           <tr>
             <th>#</th>
             {columns.map((column: string) => (
-              <th key={column}>{column}</th>
+              <th key={column}>{capitalize(column)}</th>
             ))}
             <th>Actions</th>
           </tr>
