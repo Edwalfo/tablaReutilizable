@@ -13,7 +13,7 @@ interface IReusableTableProps<T> {
   data: T[];
   title: string;
   pagination?: boolean;
-  rowsPerPage: number;
+  rowsPerPage?: number;
 }
 
 import { useEffect, useState } from "react";
@@ -30,8 +30,8 @@ function ReusableTable<T>({
   columns,
   data,
   title,
-  pagination,
-  rowsPerPage,
+  pagination = true,
+  rowsPerPage = 5,
 }: IReusableTableProps<T>) {
   const [filteredData, setFilteredData] = useState<T[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -77,7 +77,7 @@ function ReusableTable<T>({
   // Capitalize the title columns.
   const capitalize = (word: string) => {
     return word[0].toUpperCase() + word.slice(1);
-  }
+  };
 
   // Render the component.
   return (
