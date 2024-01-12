@@ -88,7 +88,7 @@ function ReusableTable<T>({
   // Render the component.
   return (
     <>
-      <h1 className="title">Records {title} </h1>
+      <h1 className="title">{title}</h1>
 
       <table className="data-table">
         <thead>

@@ -89,7 +89,7 @@ function App() {
       <TablaReutilizable
         data={users}
         columns={columns}
-        title="usuarios"
+        title="Usuarios"
         pagination={true}
         rowsPerPage={7}
         handleEdit={handleEdit}
