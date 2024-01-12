@@ -7,6 +7,8 @@
  * @property {string} title - The title of the table.
  * @property {boolean} [pagination] - If true, pagination is enabled.
  * @property {number} rowsPerPage - The number of rows to be displayed per page.
+ * @property {(id: number) => void} handleEdit - The function to handle the edit action.
+ * @property {(id: number) => void} handleDelete - The function to handle the delete action.
  */
 interface IReusableTableProps<T> {
   columns: string[];
@@ -14,6 +16,8 @@ interface IReusableTableProps<T> {
   title: string;
   pagination?: boolean;
   rowsPerPage?: number;
+  handleEdit: (id: number) => void;
+  handleDelete: (id: number) => void;
 }
 
 import { useEffect, useState } from "react";
@@ -32,6 +36,8 @@ function ReusableTable<T>({
   title,
   pagination = true,
   rowsPerPage = 5,
+  handleEdit,
+  handleDelete,
 }: IReusableTableProps<T>) {
   const [filteredData, setFilteredData] = useState<T[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -104,10 +110,18 @@ function ReusableTable<T>({
               ))}
               <td>
                 <div className="btn-container">
-                  <button className="button button-edit margin-right">
+                  <button
+                    className="button button-edit margin-right"
+                    onClick={() => handleEdit(row.id)}
+                  >
                     Edit
                   </button>
-                  <button className="button button-delete">Delete</button>
+                  <button
+                    className="button button-delete"
+                    onClick={() => handleDelete(row.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>

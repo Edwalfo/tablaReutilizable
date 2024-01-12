@@ -75,6 +75,14 @@ function App() {
   const [users, setUsers] = useState<User[]>([]);
   const columns = [ "name", "age"];
 
+  const handleEdit = (id: number) => {
+    console.log("Edit", id);
+  }
+
+  const handleDelete = (id: number) => {
+    console.log("Delete", id);
+  }
+
   return (
     <>
       <h1>Pruebas</h1>
@@ -84,6 +92,8 @@ function App() {
         title="usuarios"
         pagination={true}
         rowsPerPage={7}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
       />
     </>
   );
