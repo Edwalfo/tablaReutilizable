@@ -82,6 +82,8 @@ function App() {
         data={users}
         columns={columns}
         title="usuarios"
+        pagination={true}
+        rowsPerPage={7}
       />
     </>
   );
