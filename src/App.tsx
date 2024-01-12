@@ -73,7 +73,7 @@ function App() {
   }, []);
 
   const [users, setUsers] = useState<User[]>([]);
-  const columns = ["id", "name", "age"];
+  const columns = [ "name", "age"];
 
   return (
     <>
